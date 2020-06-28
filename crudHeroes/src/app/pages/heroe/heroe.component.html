@@ -1,0 +1,57 @@
+<h1>Heroe <small>Nombre del heroe</small></h1>
+<hr>
+
+<div class="row text-right">
+    <div class="col">
+        <button class="btn btn-success" routerLink="/heroes">
+            <i class="fa fa-arrow-left"></i>
+            Return
+        </button>
+    </div>
+</div>
+
+
+<div class="row animated fadeIn faster">
+    <div class="col">
+        <form #frm="ngForm" (ngSubmit)="save( frm )">
+            <div class="form-group">
+                <label> Firebase ID</label>
+                <input type="text" class="form-control" [(ngModel)]="heroe.id" name="id" placeholder="Firebase ID" disabled="disabled">
+                <small class="form-text text-muted">This is auto-generated</small>
+            </div>
+
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" class="form-control" [(ngModel)]="heroe.name" name="name" placeholder="Heroe's Name" required>
+            </div>
+
+            <div class="form-group">
+                <label>Power</label>
+                <input type="text" class="form-control" [(ngModel)]="heroe.power" name="power" placeholder="Heroe's Power">
+            </div>
+
+            <div class="form-group">
+                <button *ngIf="heroe.enabled" (click)="heroe.enabled = false" class="btn btn-outline-success w-50" type="button">
+                   <i class="fa fa-smile-wink"></i>
+                    Enable
+                </button>
+
+                <button *ngIf="!heroe.enabled" (click)="heroe.enabled = true" class="btn btn-outline-danger w-50" type="button">
+                    <i class="fa fa-dizzy"></i>
+                     Disabled
+                 </button>
+            </div>
+
+            <hr>
+
+            <div class="form-group text-center">
+                <button type="submit" class="btn btn-primary w-25">
+                    <i class="fa fa-save"></i>
+                    Save
+                </button>
+            </div>
+
+        </form>
+
+    </div>
+</div>
